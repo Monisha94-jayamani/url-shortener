@@ -6,7 +6,16 @@ const dotenv = require("dotenv");
 dotenv.config();
 const port = process.env.port || 5001;
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/myUrlShortener");
+
+try {
+  mongoose.connect(
+    "mongodb+srv://killer:bmEU6SzDNkLeEQIc@cluster0.jqjgo.mongodb.net/url?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => console.log("connected")
+  );
+} catch (error) {
+  console.log("could not connect");
+}
 app.use(bodyParser.urlencoded({ extended: true }));
 const { UrlModel } = require("./models/urlshort");
 app.use(cors());
