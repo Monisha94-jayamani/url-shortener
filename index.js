@@ -51,15 +51,7 @@ app.post("/createurl", function (req, res) {
 app.get("/:urlId", function (req, res) {
   UrlModel.findOne({ shortUrl: req.params.urlId }, function (err, data) {
     if (err) throw err;
-    UrlModel.findByIdAndUpdate(
-      { _id: data.id },
-      { $inc: { clickCount: 1 } },
-      { useFindAndModify: false },
-      function (err, updatedData) {
-        if (err) throw err;
-        res.redirect(data.longUrl);
-      }
-    );
+    res.redirect(data.longUrl);
   });
 });
 app.get("/delete/:id", function (req, res) {
