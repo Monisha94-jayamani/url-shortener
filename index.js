@@ -16,6 +16,7 @@ try {
 } catch (error) {
   console.log("could not connect");
 }
+mongoose.set("useCreateIndex", true);
 app.use(bodyParser.urlencoded({ extended: true }));
 const { UrlModel } = require("./models/urlshort");
 app.use(cors());
@@ -53,6 +54,7 @@ app.get("/:urlId", function (req, res) {
     UrlModel.findByIdAndUpdate(
       { _id: data.id },
       { $inc: { clickCount: 1 } },
+      { useFindAndModify: false },
       function (err, updatedData) {
         if (err) throw err;
         res.redirect(data.longUrl);
