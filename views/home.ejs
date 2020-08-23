@@ -51,7 +51,7 @@
             <div class="card-body">
               <h5 class="card-title">
                 <a href="/<%= urlResult[i].shortUrl %>" target="_blank">
-                  http://bitly:<%= urlResult[i].shortUrl %>
+                  http://bitly:/<%= urlResult[i].shortUrl %>
                 </a>
               </h5>
               <p class="card-text">
@@ -60,7 +60,8 @@
               <a
                 href="/delete/<%= urlResult[i].id %>"
                 class="btn btn-sm btn-danger"
-                >Remove</a
+              >
+                Remove</a
               >
             </div>
           </div>
