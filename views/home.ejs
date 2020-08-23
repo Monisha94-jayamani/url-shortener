@@ -50,8 +50,11 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">
-                <a href="/<%= urlResult[i].shortUrl %>" target="_blank">
-                  http://bitly:/<%= urlResult[i].shortUrl %>
+                <a
+                  href="http://localhost:<%= PORT %>/<%= urlResult[i].shortUrl %>"
+                  target="_blank"
+                >
+                  http://localhost:<%= PORT %>/<%= urlResult[i].shortUrl %>
                 </a>
               </h5>
               <p class="card-text">
