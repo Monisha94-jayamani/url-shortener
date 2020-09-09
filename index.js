@@ -20,7 +20,7 @@ mongoose.set("useCreateIndex", true);
 app.use(bodyParser.urlencoded({ extended: true }));
 const { UrlModel } = require("./models/urlshort");
 app.use(cors());
-app.use(express.static("images"));
+//app.use(express.static("images"));
 app.set("view engine", "ejs");
 //app.set("title", "URL-shortener");
 app.listen(port, () => {
@@ -44,16 +44,18 @@ app.post("/createurl", function (req, res) {
 
   UrlShort.save(function (err, data) {
     if (err) throw err;
-    console.log(data);
+
     res.redirect("/");
   });
 });
 app.get("/:urlId", function (req, res) {
+  console.log(req.params.urlId);
   UrlModel.findOne({ shortUrl: req.params.urlId }, function (err, data) {
     if (err) throw err;
     res.redirect(data.longUrl);
   });
 });
+//https://url-shortener-myapp.herokuapp.com/
 app.get("/delete/:id", function (req, res) {
   UrlModel.findByIdAndDelete({ _id: req.params.id }, function (err, data) {
     if (err) throw err;

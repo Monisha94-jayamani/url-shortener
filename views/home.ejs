@@ -43,7 +43,7 @@
         <div class="col-lg-3">
           <div
             class="card text-white bg-secondary mb-3"
-            style="max-width: 18rem;"
+            style="max-width: 18rem"
           >
             <div class="card-header">
               Total count:<%= urlResult[i].clickCount %> PORT:<%= PORT %>
@@ -54,9 +54,7 @@
                   http://localhost:<%= PORT %>/<%= urlResult[i].shortUrl %>
                 </a>
               </h5>
-              <p class="card-text">
-                <%= urlResult[i].longUrl %>
-              </p>
+              <p class="card-text"><%= urlResult[i].longUrl %></p>
               <a
                 href="/delete/<%= urlResult[i].id %>"
                 class="btn btn-sm btn-danger"
