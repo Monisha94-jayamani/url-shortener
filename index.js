@@ -20,7 +20,7 @@ mongoose.set("useCreateIndex", true);
 app.use(bodyParser.urlencoded({ extended: true }));
 const { UrlModel } = require("./models/urlshort");
 app.use(cors());
-//app.use(express.static("images"));
+
 app.set("view engine", "ejs");
 //app.set("title", "URL-shortener");
 app.listen(port, () => {
